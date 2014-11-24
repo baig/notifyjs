@@ -352,6 +352,7 @@ class Notification
 
     main = positions[pMain]
     align = positions[pAlign]
+    classPosition = "#{main}-#{align}-position"
 
     key = pMain+"|"+pAlign
     anchor = globalAnchors[key]
@@ -359,7 +360,7 @@ class Notification
     
     unless anchorFlag
       anchor = globalAnchors[key] = createElem("div")
-      anchor.addClass("#{pluginClassName}-corner")
+      anchor.addClass("#{pluginClassName}-corner").addClass(classPosition)
       $("body").append anchor
     
     obj = anchor.prepend @wrapper
@@ -370,8 +371,9 @@ class Notification
       if align is 'middle'
         css.top = '45%'
       else if align is 'center'
-        xAnchorPos = half($(document).width()) - half(@container.width()) - getScrollBarWidth()
-        css.left = "#{xAnchorPos}px"
+        css.left = "0"
+        css.width = "100%"
+        css.textAlignt = "center"
       else
         css[align] = 0
       anchor.css(css)
