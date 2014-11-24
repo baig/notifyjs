@@ -373,7 +373,7 @@ class Notification
       else if align is 'center'
         css.left = "0"
         css.width = "100%"
-        css.textAlignt = "center"
+        css.textAlign = "center"
       else
         css[align] = 0
       anchor.css(css)
